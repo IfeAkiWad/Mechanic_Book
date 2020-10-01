@@ -5,6 +5,8 @@ class CreateRepairs < ActiveRecord::Migration[6.0]
       t.string :part
       t.integer :price
       t.string :completed
+      t.integer :mechanic_id
+      t.integer :vehicle_id
 
       t.timestamps
     end
