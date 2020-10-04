@@ -1,5 +1,7 @@
 <h1>Vehicles and Owners</h1>
 
+<%= link_to "Add Vehicle", new_vehicle_path %><br>
+
 <% @vehicles.each do |vehicle| %>
     <p>Vehicle: <%=link_to vehicle.make, vehicle_path(vehicle)%></p>
     <p>Owner: <%= vehicle.owner_name %></p>

@@ -7,8 +7,9 @@ class CreateVehicles < ActiveRecord::Migration[6.0]
       t.string :model
       t.integer :year
       t.string :type
-      t.integer :milage
+      t.integer :mileage
       t.string :symptom
+      t.string :notes
 
       t.timestamps
     end
