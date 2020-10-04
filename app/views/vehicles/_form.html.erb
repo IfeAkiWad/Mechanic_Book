@@ -1,0 +1,29 @@
+<%= form_for vehicle do |f| %>
+    <%= f.label "Owner Name: " %>
+    <%= f.text_field :owner_name %>
+
+    <%= f.label "Make: " %>
+    <%= f.text_field :make %><br>
+
+    <%= f.label "Model" %>
+    <%= f.text_field :model %><br>
+
+    <%= f.label "Year: " %>
+    <%= f.number_field :year %><br>
+
+    <%= f.label "Vehicle Type: " %>
+    <%= f.text_field :type %><br>
+
+    <%= f.label "Mileage: " %>
+    <%= f.number_field :mileage %><br>
+
+    <%= f.label "Vin Number: " %>
+    <%= f.number_field :vin_number %><br>
+
+    <%= f.label "Symptom: " %>
+    <%= f.text_field :symptom %><br>
+
+    <%= f.label "Notes: " %>
+    <%= f.text_box :notes %><br>
+    <%= f.submit %>
+<% end %>

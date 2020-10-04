@@ -1,11 +1,11 @@
 class VehiclesController < ApplicationController
+    befor_action :set_vehicle, only: %i[:show, :edit, :update, :destroy]
 
     def index
         @vehicles = Vehicle.all
     end
 
     def show
-        @vehicle = Vehicle.find_by_id(params[:id])
     end
 
     def new
@@ -19,17 +19,14 @@ class VehiclesController < ApplicationController
     end
 
     def edit
-        @vehicle = Vehicle.find_by_id(params[:id])
     end
 
     def update
-        @vehicle = Vehicle.find_by_id(params[:id])
         @vehicle.update(vehicle_params)
         redirect_to vehicle_path(@vehicle)
     end
 
     def destroy
-        @vehicle = Vehicle.find_by_id(params[:id])
         @vehicle.destroy
         redirect_to vehicles_path
     end
@@ -38,6 +35,10 @@ class VehiclesController < ApplicationController
 
     def vehicle_params
         params.require(:vehicle).permit(:owner_name, :vin_number, :make, :model, :year, :type, :mileage, :symptom, :notes )
+    end
+
+    def set_vehicle
+        @vehicle = Vehicle.find_by_id(params[:id])
     end
 
 end
