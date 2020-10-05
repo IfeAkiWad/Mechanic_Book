@@ -14,8 +14,11 @@ class VehiclesController < ApplicationController
 
     def create
         @vehicle = Vehicle.new(vehicle_params)
-        @vehicle.save
-        redirect_to vehicle_path(@vehicle)
+        if @vehicle.save
+            redirect_to vehicle_path(@vehicle)
+        else
+            render :new
+        end
     end
 
     def edit
