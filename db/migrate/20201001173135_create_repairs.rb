@@ -4,7 +4,7 @@ class CreateRepairs < ActiveRecord::Migration[6.0]
       t.string :repair
       t.string :part
       t.integer :price
-      t.string :completed
+      t.boolean :completed
       t.integer :mechanic_id
       t.integer :vehicle_id
 

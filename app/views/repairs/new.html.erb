@@ -1,0 +1,56 @@
+<h1>New Repair</h1>
+
+<%= form_for @repair do |f| %>
+    <div>
+        <%= f.label "Select an existing Vehicle by Vin number: " %>  
+        <%= f.collection_select :vehicle_id, Vehicle.all, :id, :vin_number, include_blank: true %><br>
+    </div>
+
+    <div>
+        <%= f.label "Or, Create a Vehicle: " %>
+        <%= f.fields_for :vehicle, Vehicle.new do |f| %>
+
+            <%= f.label "Owner Name: " %>
+            <%= f.text_field :owner_name %><br>
+
+            <%= f.label "Make: " %>
+            <%= f.text_field :make %><br>
+
+            <%= f.label "Model" %>
+            <%= f.text_field :model %><br>
+
+            <%= f.label "Year: " %>
+            <%= f.number_field :year %><br>
+
+            <%= f.label "Vehicle Type: " %>
+            <%= f.text_field :type %><br>
+
+            <%= f.label "Mileage: " %>
+            <%= f.number_field :mileage %><br>
+
+            <%= f.label "Vin Number: " %>
+            <%= f.number_field :vin_number %><br>
+
+            <%= f.label "Symptom: " %>
+            <%= f.text_field :symptom %><br>
+
+            <%= f.label "Notes: " %>
+            <%= f.text_box :notes %><br>
+        <% end %>
+    </div>
+    
+    <div>
+        <%= f.label "Repair: " %>
+        <%= f.text_field :repair %><br>
+
+        <%= f.label "Part: " %>
+        <%= f.text_field :part %><br>
+
+        <%= f.label "Price" %>
+        <%= f.number_field :price %><br>
+
+        <%= f.label "Completed: " %>
+        <%= f.check_box :completed %><br>
+        <%= f.submit %>
+    </div>
+<% end %>
