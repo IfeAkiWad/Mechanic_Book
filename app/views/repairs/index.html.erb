@@ -1,1 +1,8 @@
 <h1>Repairs</h1>
+
+<% @repairs.each do |r| %>
+    <p>Repair: <%= r.repair %></p>
+    <p>Part: <%= r.part %></p>
+    <p>Part: <%= r.price %></p>
+    <p>Part: <%= r.completed %></p>
+<% end %>

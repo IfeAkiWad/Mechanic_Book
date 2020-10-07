@@ -11,4 +11,5 @@ class Vehicle < ApplicationRecord
     validates :type, presence: true
     validates :mileage, presence: true
     validates :symptom, presence: true
+
 end

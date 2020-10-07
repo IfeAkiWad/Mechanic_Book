@@ -1,6 +1,11 @@
 class RepairsController < ApplicationController
 
     def index
+        @repairs =  if params[:vehicle_id]
+                        Repair.find_by_vehicle_id(params[:vehicle_id]).create_order_desc
+                    else
+                        Repair.all
+                    end
     end
 
     def show
@@ -8,6 +13,7 @@ class RepairsController < ApplicationController
     end
 
     def new
+        @vehicle_id = params[:vehicle_id] if params[:vehicle_id]
         @repair = Repair.new
     end
 
