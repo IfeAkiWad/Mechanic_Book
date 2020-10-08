@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_10_01_173253) do
 
   create_table "vehicles", force: :cascade do |t|
     t.string "owner_name"
-    t.integer "vin_number"
+    t.string "vin_number"
     t.string "make"
     t.string "model"
     t.integer "year"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_10_01_173253) do
     t.integer "mileage"
     t.string "symptom"
     t.string "notes"
+    t.integer "mechanic_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,5 +1,7 @@
 <h1>New Repair</h1>
 
+<%= link_to "All Vehicles", vehicles_path %>
+
 <% if @repair.errors.any? %>
     <h2>
       <%= pluralize(@repair.errors.count, "error") %>
@@ -47,13 +49,13 @@
                 <%= f.number_field :mileage %><br>
 
                 <%= f.label "Vin Number: " %>
-                <%= f.number_field :vin_number %><br>
+                <%= f.text_field :vin_number %><br>
 
                 <%= f.label "Symptom: " %>
                 <%= f.text_field :symptom %><br>
 
                 <%= f.label "Notes: " %>
-                <%= f.text_box :notes %><br>
+                <%= f.text_area :notes %><br>
             <% end %>
         </div>
     <% end %>

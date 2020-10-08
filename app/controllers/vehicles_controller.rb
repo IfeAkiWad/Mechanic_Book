@@ -1,5 +1,6 @@
 class VehiclesController < ApplicationController
     before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
+    before_action :require_login
 
     def index
         @vehicles = current_mechanic.vehicles
@@ -11,6 +12,7 @@ class VehiclesController < ApplicationController
 
     def new
         @vehicle = Vehicle.new
+        # @type_options = %w[Convertible, Coupe, Sedan, Hatchback, Minivan, Station Wagon, Sport Utility, Sports Car, Van, Crossover, Pickup Truck, Mid-Size Car, Roadster, Full-Sized Car, Compact Car]
     end
 
     def create
@@ -43,6 +45,10 @@ class VehiclesController < ApplicationController
 
     def set_vehicle
         @vehicle = Vehicle.find_by_id(params[:id])
+    end
+
+    def require_login
+        return head(:forbidden) unless session.include? :mechanic_id
     end
 
 end

@@ -10,12 +10,29 @@ class SessionsController < ApplicationController
             redirect_to vehicles_path
         else
             render :new
+            flash[:alert] = "Please provide a valid Email and/or Password."
+        end
+    end
+
+    def omniauth
+        mechanic = Mechanic.omniauth(auth)
+        if mechanic.valid?
+            session[:mechanic_id] = mechanic.id 
+            redirect_to vehicles_path
+        else
+            redirect_to mechanics_path
         end
     end
 
     def destroy
         session.clear
         redirect_to mechanics_path
+    end
+
+    protected
+
+    def auth
+        request.evn['omniauth.auth']
     end
 
 end

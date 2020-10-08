@@ -1,5 +1,11 @@
 <h1>Log In</h1>
 
+<% flash.each do |type, msg| %>
+  <div>
+    <p style="color:red;"><%= msg %></p>
+  </div>
+<% end %>
+
 <%= form_for :mechanic do |f| %>
     <%= f.label "email: " %>
     <%= f.text_field :email %><br>
@@ -8,3 +14,5 @@
     <%= f.password_field :password %><br>
     <%= f.submit "Log In" %>
 <% end %>
+
+<%= button_to "Google Log In", '/auth/google_oauth2' %>

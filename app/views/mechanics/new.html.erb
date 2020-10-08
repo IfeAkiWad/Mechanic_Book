@@ -1,4 +1,18 @@
 <h1>Sign Up</h1>
+
+<% if @mechanic.errors.any? %>
+    <h2>
+      <%= pluralize(@mechanic.errors.count, "error") %>
+      prohibited you from signing up:
+    </h2>
+ 
+    <ul>
+    <% @mechanic.errors.full_messages.each do |msg| %>
+      <li><p style="color:red;"><%= msg %></p></li>
+    <% end %>
+    </ul>
+<% end %>
+
 <%= form_for @mechanic do |f| %>
     <%= f.label "Username: " %>
     <%= f.text_field :username %><br>
