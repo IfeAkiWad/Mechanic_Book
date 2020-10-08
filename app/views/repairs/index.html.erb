@@ -1,5 +1,8 @@
 <h1>Repairs</h1>
 
+<%= link_to "All Vehicles", vehicles_path %>
+
+
 <% @repairs.each do |r| %>
     <p>Repair: <%= r.repair %></p>
     <p>Part: <%= r.part %></p>

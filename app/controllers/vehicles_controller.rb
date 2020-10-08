@@ -1,11 +1,12 @@
 class VehiclesController < ApplicationController
-    befor_action :set_vehicle, only: %i[:show, :edit, :update, :destroy]
+    before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
 
     def index
-        @vehicles = Vehicle.all
+        @vehicles = current_mechanic.vehicles
     end
 
     def show
+        # byebug
     end
 
     def new
@@ -13,7 +14,7 @@ class VehiclesController < ApplicationController
     end
 
     def create
-        @vehicle = Vehicle.new(vehicle_params)
+        @vehicle = current_mechanic.vehicles.new(vehicle_params)
         if @vehicle.save
             redirect_to vehicle_path(@vehicle)
         else
@@ -37,7 +38,7 @@ class VehiclesController < ApplicationController
     private
 
     def vehicle_params
-        params.require(:vehicle).permit(:owner_name, :vin_number, :make, :model, :year, :type, :mileage, :symptom, :notes)
+        params.require(:vehicle).permit(:owner_name, :vin_number, :make, :model, :year, :vehicle_type, :mileage, :symptom, :notes)
     end
 
     def set_vehicle

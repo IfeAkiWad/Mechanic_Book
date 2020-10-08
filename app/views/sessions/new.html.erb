@@ -1,0 +1,10 @@
+<h1>Log In</h1>
+
+<%= form_for :mechanic do |f| %>
+    <%= f.label "email: " %>
+    <%= f.text_field :email %><br>
+
+    <%= f.label "Password: " %>
+    <%= f.password_field :password %><br>
+    <%= f.submit "Log In" %>
+<% end %>

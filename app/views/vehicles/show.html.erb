@@ -1,15 +1,16 @@
 <%= link_to "All Vehicles", vehicles_path %>
 
-<p>Make: <%= vehicle.make %></p>
-<p>Model: <%= vehicle.make %></p>
-<p>Year: <%= vehicle.make %></p>
-<p>Type: <%= vehicle.make %></p>
-<p>Milage: <%= vehicle.make %></p>
-<p>Vin Number: <%= vehicle.make %></p>
-<p>Owner Name: <%= vehicle.make %></p>
-<p>Symptom: <%= vehicle.make %></p>
+<p>Make: <%= @vehicle.make %></p>
+<p>Model: <%= @vehicle.model %></p>
+<p>Year: <%= @vehicle.year %></p>
+<p>Type: <%= @vehicle.vehicle_type %></p>
+<p>Milage: <%= @vehicle.mileage %></p>
+<p>Vin Number: <%= @vehicle.vin_number %></p>
+<p>Owner Name: <%= @vehicle.owner_name %></p>
+<p>Symptom: <%= @vehicle.symptom %></p>
+<p>Notes: <%= @vehicle.notes %></p>
 
 <%= link_to "Edit", edit_vehicle_path(@vehicle) %>
 <%= link_to "Delete", vehicle_path(@vehicle), method: :delete %>
 <%= link_to "View Repairs", vehicle_repairs_path(@vehicle) %>
-<%= link_to "Add Repair", new_vehicle_repairs_path(@vehicle) %>
+<%= link_to "Add Repair", new_vehicle_repair_path(@vehicle) %>
