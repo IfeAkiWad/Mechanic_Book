@@ -7,3 +7,7 @@
 <p>Job completed?: <%= @repair.completed %></p>
 
 <%= link_to "Vehicle Information", vehicle_path(@repair.vehicle) %>
+<%= link_to "All Vehicles", vehicles_path %>
+<%= link_to "View Repairs", repairs_path(@repair) %>
+<%= link_to "Update or Edit", edit_repair_path(@repair) %>
+<%= link_to "Delete", repair_path(@repair), method: :delete %>

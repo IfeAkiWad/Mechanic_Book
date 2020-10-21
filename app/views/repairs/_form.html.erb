@@ -1,0 +1,53 @@
+<%= link_to "All Vehicles", vehicles_path %>
+
+<% if @repair.errors.any? %>
+    <h2>
+      <%= pluralize(@repair.errors.count, "error") %>
+      prohibited this repair from being saved:
+    </h2>
+ 
+    <ul>
+    <% @repair.errors.full_messages.each do |msg| %>
+      <li><p style="color:red;"><%= msg %></p></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @repair do |f| %>
+
+    <% if @vehicle %>
+        <h3><%= @vehicle.vin_number %> Add a Repair</h3>
+        <%= f.hidden_field :vehicle_id, value: @vehicle.id %> 
+    <% else %>
+        <div>
+            <%= f.label "Select an existing Vehicle by Vin number: " %>  
+            <%= f.collection_select :vehicle_id, Vehicle.all, :id, :vin_number, include_blank: true %><br>
+        </div>
+    <% end %>
+    
+    <div>
+        <%= f.label "Repair: " %>
+        <%= f.text_field :repair %><br>
+
+        <%= f.label "Part: " %>
+        <%= f.text_field :part %><br>
+
+        <%= f.label "Price" %>
+        <%= f.number_field :price %><br>
+
+        <%= f.label "Completed: " %>
+        <%= f.check_box :completed %><br>
+        <%= f.submit %>
+    </div>
+
+<% end %>
+
+<style>
+    .field_with_errors > input {
+      border: 1px solid red
+    }
+  
+    .field_with_errors > label {
+      color: red
+    }
+  </style>

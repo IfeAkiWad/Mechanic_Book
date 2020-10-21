@@ -7,12 +7,10 @@ class VehiclesController < ApplicationController
     end
 
     def show
-        # byebug
     end
 
     def new
         @vehicle = Vehicle.new
-        # @type_options = %w[Convertible, Coupe, Sedan, Hatchback, Minivan, Station Wagon, Sport Utility, Sports Car, Van, Crossover, Pickup Truck, Mid-Size Car, Roadster, Full-Sized Car, Compact Car]
     end
 
     def create

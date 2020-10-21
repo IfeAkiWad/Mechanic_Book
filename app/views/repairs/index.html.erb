@@ -6,6 +6,7 @@
 <% @repairs.each do |r| %>
     <p>Repair: <%= r.repair %></p>
     <p>Part: <%= r.part %></p>
-    <p>Part: <%= r.price %></p>
-    <p>Part: <%= r.completed %></p>
+    <p>Price: <%= r.price %></p>
+    <p>Completed: <%= r.completed %></p>
+    <%= link_to "View", repair_path(r) %>
 <% end %>
